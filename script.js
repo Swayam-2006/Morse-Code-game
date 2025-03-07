@@ -58,6 +58,14 @@ function selectSet(setNumber) {
     displayMorse();
 }
 
+function selectLevel(level) {
+    selectedLevel = level;
+    document.getElementById("levelSelection").style.display = "none";
+    document.getElementById("gameArea").style.display = "block";
+    displayMorse();
+}
+
+
 document.getElementById("submitButton").addEventListener("click", checkAnswer);
 skipButton.addEventListener("click", skipMorse);
 nextButton.addEventListener("click", nextMorse);
