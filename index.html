@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Mini-Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Morse Code Challenge</h1>
+        <p>Select a set:</p>
+        <button onclick="selectSet(1)">Set 1</button>
+        <button onclick="selectSet(2)">Set 2</button>
+        <button onclick="selectSet(3)">Set 3</button>
+
+        <div id="level-selection" style="display:none;">
+            <p>Select difficulty level:</p>
+            <button onclick="startGame('moderate')">Moderate</button>
+            <button onclick="startGame('hard')">Hard</button>
+        </div>
+
+        <div id="game-area" style="display:none;">
+            <p id="morse-question"></p>
+            <input type="text" id="morse-answer" placeholder="Enter decoded text">
+            <button onclick="checkAnswer()">Submit</button>
+            <p id="feedback"></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

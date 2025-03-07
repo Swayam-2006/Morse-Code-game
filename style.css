@@ -1,0 +1,83 @@
+/* Import Glitchy Font */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+    background-color: #050a1f;
+    color: #00b3ff;
+    font-family: 'VT323', monospace;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0, 179, 255, 0.1);
+    border: 2px solid #00b3ff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #0044ff;
+}
+
+/* Glitch Effect */
+h1 {
+    font-size: 28px;
+    position: relative;
+    text-shadow: 2px 2px 5px rgba(0, 179, 255, 0.5);
+    animation: glitch 0.8s infinite alternate;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px 5px rgba(0, 179, 255, 0.8); }
+    25% { text-shadow: -2px -2px 5px rgba(255, 0, 255, 0.6); }
+    50% { text-shadow: 3px 3px 5px rgba(0, 179, 255, 0.7); }
+    75% { text-shadow: -3px -3px 5px rgba(255, 0, 255, 0.7); }
+    100% { text-shadow: 2px 2px 5px rgba(0, 179, 255, 0.9); }
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Cyberpunk Buttons */
+button {
+    background: black;
+    color: #00b3ff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: 2px solid #00b3ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: #00b3ff;
+    color: black;
+    box-shadow: 0 0 15px #0044ff;
+}
+
+/* Input Styling */
+input {
+    background: black;
+    color: #00b3ff;
+    border: 2px solid #00b3ff;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    margin-top: 10px;
+}
+
+/* Feedback Text */
+#feedback {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
