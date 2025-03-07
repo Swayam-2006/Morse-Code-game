@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morse Code Mini-Game</title>
+    <title>Morse Code Challenge</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Morse Code Challenge</h1>
-        <p>Select a set:</p>
-        <button onclick="selectSet(1)">Set 1</button>
-        <button onclick="selectSet(2)">Set 2</button>
-        <button onclick="selectSet(3)">Set 3</button>
 
-        <div id="level-selection" style="display:none;">
-            <p>Select difficulty level:</p>
-            <button onclick="startGame('moderate')">Moderate</button>
-            <button onclick="startGame('hard')">Hard</button>
+        <!-- Set Selection -->
+        <div id="setSelection">
+            <p>Select a Set:</p>
+            <button onclick="selectSet(1)">Set 1</button>
+            <button onclick="selectSet(2)">Set 2</button>
+            <button onclick="selectSet(3)">Set 3</button>
         </div>
 
-        <div id="game-area" style="display:none;">
-            <p id="morse-question"></p>
-            <input type="text" id="morse-answer" placeholder="Enter decoded text">
-            <button onclick="checkAnswer()">Submit</button>
+        <!-- Game Area -->
+        <div id="gameArea" style="display: none;">
+            <p id="morseDisplay" class="morse-code"></p>
+            <input type="text" id="userInput" placeholder="Enter decoded text">
+            <button id="submitButton">Submit</button>
             <button id="skipButton">Skip</button>
             <p id="feedback"></p>
+            <p id="score">Score: 0</p>
+            <button id="nextButton" style="display: none;">Next</button>
         </div>
     </div>
     
