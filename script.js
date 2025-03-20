@@ -47,10 +47,17 @@ function selectSet(setNumber) {
 function startGame() {
     document.getElementById("levelMessage").style.display = "none";
     document.getElementById("gameArea").style.display = "block";
+    currentIndex = 0;
+    score = 0;
+    correctAnswers = 0;
     displayMorse();
 }
 
 function displayMorse() {
+    if (currentIndex >= morseSets[selectedSet].length) {
+        endGame();
+        return;
+    }
     let morseData = morseSets[selectedSet][currentIndex];
     morseDisplay.innerHTML = `<span style="font-size: 30px; letter-spacing: 8px;">${morseData.morse}</span>`;
     inputField.value = "";
@@ -58,6 +65,7 @@ function displayMorse() {
 }
 
 document.getElementById("submitButton").addEventListener("click", checkAnswer);
+document.getElementById("skipButton").addEventListener("click", skipQuestion);
 
 function checkAnswer() {
     let morseData = morseSets[selectedSet][currentIndex];
@@ -65,14 +73,28 @@ function checkAnswer() {
         feedback.textContent = "✅ Correct! +10 points";
         score += 10;
         correctAnswers++;
-        if (correctAnswers >= 4) {
-            passMessage.textContent = "🎉 You have passed this level!";
-            passMessage.style.display = "block";
-        }
     } else {
         feedback.textContent = "❌ Incorrect. Try again!";
+        return;
     }
+    
     scoreDisplay.textContent = `Score: ${score}`;
     currentIndex++;
-    if (currentIndex < morseSets[selectedSet].length) displayMorse();
+    displayMorse();
+}
+
+function skipQuestion() {
+    feedback.textContent = "⏭️ Question Skipped!";
+    currentIndex++;
+    displayMorse();
+}
+
+function endGame() {
+    document.getElementById("gameArea").style.display = "none";
+    if (correctAnswers >= 4) {
+        passMessage.textContent = "🎉 You passed this level!";
+    } else {
+        passMessage.textContent = "❌ You failed this level. Try again!";
+    }
+    passMessage.style.display = "block";
 }
