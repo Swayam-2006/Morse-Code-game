@@ -30,59 +30,49 @@ let morseSets = {
 let selectedSet = 1;
 let currentIndex = 0;
 let score = 0;
+let correctAnswers = 0;
 
 const morseDisplay = document.getElementById("morseDisplay");
 const inputField = document.getElementById("userInput");
 const feedback = document.getElementById("feedback");
 const scoreDisplay = document.getElementById("score");
-const skipButton = document.getElementById("skipButton");
-const nextButton = document.getElementById("nextButton");
+const passMessage = document.getElementById("passMessage");
 
 function selectSet(setNumber) {
     selectedSet = setNumber;
     document.getElementById("setSelection").style.display = "none";
+    document.getElementById("levelMessage").style.display = "block";
+}
+
+function startGame() {
+    document.getElementById("levelMessage").style.display = "none";
     document.getElementById("gameArea").style.display = "block";
     displayMorse();
 }
-
-document.getElementById("submitButton").addEventListener("click", checkAnswer);
-skipButton.addEventListener("click", skipMorse);
-nextButton.addEventListener("click", nextMorse);
-
-displayMorse();
 
 function displayMorse() {
     let morseData = morseSets[selectedSet][currentIndex];
     morseDisplay.innerHTML = `<span style="font-size: 30px; letter-spacing: 8px;">${morseData.morse}</span>`;
     inputField.value = "";
     feedback.textContent = "";
-    nextButton.style.display = "none";
 }
+
+document.getElementById("submitButton").addEventListener("click", checkAnswer);
 
 function checkAnswer() {
     let morseData = morseSets[selectedSet][currentIndex];
     if (inputField.value.toUpperCase().trim() === morseData.text) {
         feedback.textContent = "✅ Correct! +10 points";
-        feedback.style.color = "#00FF00";
         score += 10;
-        scoreDisplay.textContent = `Score: ${score}`;
-        nextButton.style.display = "block";
+        correctAnswers++;
+        if (correctAnswers >= 4) {
+            passMessage.textContent = "🎉 You have passed this level!";
+            passMessage.style.display = "block";
+        }
     } else {
         feedback.textContent = "❌ Incorrect. Try again!";
-        feedback.style.color = "#FF0000";
     }
-}
-
-function skipMorse() {
-    nextMorse();
-}
-
-function nextMorse() {
-    if (currentIndex < morseSets[selectedSet].length - 1) {
-        currentIndex++;
-        displayMorse();
-    } else {
-        feedback.textContent = `🎉 Game Over! Final Score: ${score} / ${morseSets[selectedSet].length * 10}`;
-        nextButton.style.display = "none";
-    }
+    scoreDisplay.textContent = `Score: ${score}`;
+    currentIndex++;
+    if (currentIndex < morseSets[selectedSet].length) displayMorse();
 }
