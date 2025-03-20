@@ -1,4 +1,3 @@
-/* Import Glitchy Font */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 body {
@@ -24,17 +23,7 @@ body {
 /* Glitch Effect */
 h1 {
     font-size: 28px;
-    position: relative;
     text-shadow: 2px 2px 5px rgba(0, 179, 255, 0.5);
-    animation: glitch 0.8s infinite alternate;
-}
-
-@keyframes glitch {
-    0% { text-shadow: 2px 2px 5px rgba(0, 179, 255, 0.8); }
-    25% { text-shadow: -2px -2px 5px rgba(255, 0, 255, 0.6); }
-    50% { text-shadow: 3px 3px 5px rgba(0, 179, 255, 0.7); }
-    75% { text-shadow: -3px -3px 5px rgba(255, 0, 255, 0.7); }
-    100% { text-shadow: 2px 2px 5px rgba(0, 179, 255, 0.9); }
 }
 
 p {
