@@ -18,9 +18,10 @@
             <button onclick="selectSet(3)">Set 3</button>
         </div>
 
-         <div id="levelMessage" style="display: none;">
-            <p>You must solve at least <strong>4 out of 6</strong> Morse codes to pass this level.</p>
-            <button onclick="startGame()">Start Challenge</button>
+        <!-- Level Message -->
+        <div id="levelMessage" style="display: none;">
+            <p>⚠️ You need to solve at least <strong>4 out of 6</strong> Morse codes to pass.</p>
+            <button onclick="startGame()">Start</button>
         </div>
 
         <!-- Game Area -->
@@ -31,8 +32,10 @@
             <button id="skipButton">Skip</button>
             <p id="feedback"></p>
             <p id="score">Score: 0</p>
-            <button id="nextButton" style="display: none;">Next</button>
         </div>
+
+        <!-- End Game Message -->
+        <div id="passMessage" style="display: none;"></div>
     </div>
     
     <script src="script.js"></script>
