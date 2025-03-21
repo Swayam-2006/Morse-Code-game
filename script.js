@@ -4,8 +4,8 @@ let morseSets = {
     1: [
         { text: "SECURE YOUR DATA", morse: "... . -.-. ..- .-. . / -.-- --- ..- .-. / -.. .- - .-" },
         { text: "HIDE YOUR IP", morse: ".... .. -.. . / -.-- --- ..- .-. / .. .--." },
-        { text: "STRONG PASSWORDS WIN", morse: "... - .-. --- -. --. / .--. .- ... ... .-- --- .-. -.. ... / .-- .. -." },
-        { text: "CYBER ATTACK RISK", morse: "-.-. -.-- -... . .-. / .- - - .- -.-. -.- / .-. .. ... -.-" },
+        // { text: "STRONG PASSWORDS WIN", morse: "... - .-. --- -. --. / .--. .- ... ... .-- --- .-. -.. ... / .-- .. -." },
+        // { text: "CYBER ATTACK RISK", morse: "-.-. -.-- -... . .-. / .- - - .- -.-. -.- / .-. .. ... -.-" },
         { text: "HACKERS STEAL DATA", morse: ".... .- -.-. -.- . .-. ... / ... - . .- .-.. / -.. .- - .-" },
         { text: "TWO FACTOR SECURITY", morse: "- .-- --- / ..-. .- -.-. - --- .-. / ... . -.-. ..- .-. .. - -.--" }
     ],
@@ -13,15 +13,15 @@ let morseSets = {
         { text: "STAY SAFE ONLINE", morse: "... - .- -.-- / ... .- ..-. . / --- -. .-.. .. -. ." },
         { text: "PROTECT YOUR INFO", morse: ".--. .-. --- - . -.-. - / -.-- --- ..- .-. / .. -. ..-. ---" },
         { text: "ENCRYPT ALL FILES", morse: ". -. -.-. .-. -.-- .--. - / .- .-.. .-.. / ..-. .. .-.. . ..." },
-        { text: "PASSWORD LEAK ALERT", morse: ".--. .- ... ... .-- --- .-. -.. / .-.. . .- -.- / .- .-.. . .-. -" },
+        // { text: "PASSWORD LEAK ALERT", morse: ".--. .- ... ... .-- --- .-. -.. / .-.. . .- -.- / .- .-.. . .-. -" },
         { text: "SECURE LOGIN FAST", morse: "... . -.-. ..- .-. . / .-.. --- --. .. -. / ..-. .- ... -" },
-        { text: "BLOCK MALWARE THREATS", morse: "-... .-.. --- -.-. -.- / -- .- .-.. .-- .- .-. . / - .... .-. . .- - ..." }
+        // { text: "BLOCK MALWARE THREATS", morse: "-... .-.. --- -.-. -.- / -- .- .-.. .-- .- .-. . / - .... .-. . .- - ..." }
     ],
     3: [
         { text: "UPDATE YOUR SYSTEM", morse: "..- .--. -.. .- - . / -.-- --- ..- .-. / ... -.-- ... - . --" },
         { text: "USE A VPN", morse: "..- ... . / .- / ...- .--. -." },
-        { text: "BACKUP IMPORTANT FILES", morse: "-... .- -.-. -.- ..- .--. / .. -- .--. --- .-. - .- -. - / ..-. .. .-.. . ..." },
-        { text: "HACK DETECTED ALERT", morse: ".... .- -.-. -.- / -.. . - . -.-. - . -.. / .- .-.. . .-. -" },
+        // { text: "BACKUP IMPORTANT FILES", morse: "-... .- -.-. -.- ..- .--. / .. -- .--. --- .-. - .- -. - / ..-. .. .-.. . ..." },
+        // { text: "HACK DETECTED ALERT", morse: ".... .- -.-. -.- / -.. . - . -.-. - . -.. / .- .-.. . .-. -" },
         { text: "TWO STEP VERIFICATION", morse: "- .-- --- / ... - . .--. / ...- . .-. .. ..-. .. -.-. .- - .. --- -." },
         { text: "DATA PRIVACY FIRST", morse: "-.. .- - .- / .--. .-. .. ...- .- -.-. -.-- / ..-. .. .-. ... -" }
     ]
@@ -91,8 +91,10 @@ function skipQuestion() {
 
 function endGame() {
     document.getElementById("gameArea").style.display = "none";
-    if (correctAnswers >= 4) {
+    if (correctAnswers >= 3) {
         passMessage.textContent = "🎉 You passed this level!";
+        passMessage.textContent = "CONGRATULATIONS 🥳.....";
+        passMessage.textContent = "Your Secret Keyword is DATAPRIVACY12";
     } else {
         passMessage.textContent = "❌ You failed this level. Try again!";
     }
